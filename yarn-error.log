@@ -1,0 +1,43 @@
+Arguments: 
+  /usr/local/bin/node /usr/share/yarn/bin/yarn.js
+
+PATH: 
+  /usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin:/usr/sbin:/snap/bin:/home/valdir/Android/Sdk/emulator:/home/valdir/Android/Sdk/tools:/home/valdir/Android/Sdk/tools/bin:/home/valdir/Android/Sdk/platform-tools:/home/valdir/android-studio/bin:/home/valdir/Android/Sdk/emulator:/home/valdir/Android/Sdk/tools:/home/valdir/Android/Sdk/tools/bin:/home/valdir/Android/Sdk/platform-tools:/home/valdir/android-studio/bin
+
+Yarn version: 
+  1.21.1
+
+Node version: 
+  12.17.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  SyntaxError: /home/valdir/Documents/gostack/conceitos/projeto-node/package.json: Unexpected token } in JSON at position 228
+      at JSON.parse (<anonymous>)
+      at /usr/share/yarn/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/share/yarn/lib/cli.js:310:30)
+      at /usr/share/yarn/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "projeto-node",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "devDependencies": {
+      "typescript": "^4.0.3",
+      "@types/express": "^4.17.8"
+    },
+    "dependencies": {
+      "express": "^4.17.1",
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
