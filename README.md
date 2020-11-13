@@ -61,7 +61,6 @@
 **RNF**
 
 - a listagem de prestadores deve ser armazenado em chache
--
 
 **RN**
 
