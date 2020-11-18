@@ -33,8 +33,6 @@ export default class ListProvidersService {
     if (!users) {
       users = await this.usersRepository.findAllProviders(except_user_id);
 
-      console.log('a query no banco foi feita');
-
       await this.cacheProvider.save(`providers-list:${except_user_id}`, users);
     }
 
