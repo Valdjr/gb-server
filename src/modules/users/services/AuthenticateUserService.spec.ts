@@ -2,22 +2,15 @@ import AppError from '@shared/errors/AppError';
 import FakeHashProvider from '@modules/users/providers/HashProvider/fakes/FakeHashProvider';
 import FakeUsersRepository from '../repositories/fakes/FakeUsersRepository';
 import AuthenticateUserService from './AuthenticateUserService';
-import CreateUserService from './CreateUserService';
 
 let fakeUsersRepository: FakeUsersRepository;
 let fakeHashProvider: FakeHashProvider;
-let createUserService: CreateUserService;
 let authenticateUserService: AuthenticateUserService;
 
 describe('AuthenticateUserService', () => {
   beforeEach(() => {
     fakeUsersRepository = new FakeUsersRepository();
     fakeHashProvider = new FakeHashProvider();
-
-    createUserService = new CreateUserService(
-      fakeUsersRepository,
-      fakeHashProvider,
-    );
 
     authenticateUserService = new AuthenticateUserService(
       fakeUsersRepository,
@@ -26,7 +19,7 @@ describe('AuthenticateUserService', () => {
   });
 
   it('should be able to authenticate an user', async () => {
-    await createUserService.execute({
+    await fakeUsersRepository.create({
       name: 'john doe',
       email: 'a@a.a',
       password: '123456',
@@ -50,7 +43,7 @@ describe('AuthenticateUserService', () => {
   });
 
   it('should not be able to authenticate an user within an invalid password', async () => {
-    await createUserService.execute({
+    await fakeUsersRepository.create({
       name: 'john doe',
       email: 'a@a.a',
       password: '123456',
