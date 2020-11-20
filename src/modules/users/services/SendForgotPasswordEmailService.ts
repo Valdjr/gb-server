@@ -59,7 +59,7 @@ export default class SendForgotPasswordEmailService {
         file: forgotFileTemplate,
         variables: {
           name: user.name,
-          link: `${process.env.APP_WEB_URL}/reset_password?token=${token}`,
+          link: `${process.env.APP_WEB_URL}/reset-password?token=${token}`,
         },
       },
     });
