@@ -31,6 +31,18 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.ssh_key }}
-          source: "dist"
-          target: "test"
+          source: ".,!node_modules"
+          target: "~/app/gb-server"
       
+      - name: Run production scripts on Digital Ocean
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          port: ${{ secrets.SSH_PORT }}
+          key: ${{ secrets.ssh_key }}
+          script: |
+            cd ~/app/gb-server
+            yarn
+            ./node_modules/.bin/typeorm migration:run
+            pm2 restart gobarber-api
